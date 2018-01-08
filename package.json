@@ -1,0 +1,27 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "A command line tic-tac-toe game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesTheTerry/tic-tac-toe.git"
+  },
+  "author": "James Terry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesTheTerry/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/JamesTheTerry/tic-tac-toe#readme",
+  "dependencies": {
+    "inquirer": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.9"
+  }
+}
