@@ -1,8 +1,23 @@
 var inquirer = require('inquirer');
+var _ = require('lodash');
 
 var b = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']];
 var currentTurn = 'X';
 var gameOver = false;
+
+var checkForWinner = function() {
+  for (var i = 0; i < b.length; i++) {
+    if (_.every(b[i], 'X')) {
+      console.log('X wins');
+      gameOver = true;
+      return;
+    } else if (_.every(b[i], 'X')) {
+      console.log('O wins');
+      gameOver = true;
+      return;
+    }
+  }
+}
 
 var getRowString = function(row) {
   var fullRow = '';
@@ -15,7 +30,6 @@ var displayB = function() {
   var seperator = '\n___|___|___\n';
   console.log(getRowString(b[0]) + seperator + getRowString(b[1]) + seperator + getRowString(b[2]) + '\n   |   |   ');
 }
-
 
 var addToBoard = function(row, col) {
   if (b[row][col] === ' ') {
@@ -34,8 +48,11 @@ var enterMove = function(row, col) {
       currentTurn = 'X';
     }
     displayB();
+    checkForWinner();
     if (!gameOver) {
       movePrompt();
+    } else {
+      console.log('Game Over');
     }
   } else {
     // Invalid Move
